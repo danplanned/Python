@@ -4,8 +4,16 @@ class Menu():
     self.items = items
     self.start_time = start_time
     self.end_time = end_time
-  def NameOfMenu(menu):
-    print(menu.name)  
+
+  def __repr__(self):
+    return self.name + "menu available from " + self.start_time + " to " + self.end_time
+
+
+  def CalculateBill(self, purchased_items):
+      TotalBill = 0
+      for item in purchased_items:
+        TotalBill += self.items[item]
+      return TotalBill
 
 
 brunch = Menu("brunch", 
@@ -14,12 +22,16 @@ brunch = Menu("brunch",
 }, "11am", "4pm"
 )
 
+print(brunch.CalculateBill(["pancakes", "home fries", "coffee"]))
+
 early_bird = Menu("early_bird", 
 {
   'salumeria plate': 8.00, 'salad and breadsticks (serves 2, no refills)': 14.00, 'pizza with quattro formaggi': 9.00, 'duck ragu': 17.50, 'mushroom ravioli (vegan)': 13.50, 'coffee': 1.50, 'espresso': 3.00,
 },
 "3pm","6pm"
 )
+
+print(early_bird.CalculateBill(["salumeria plate", "mushroom ravioli (vegan)"]))
 
 dinner = Menu("dinner",
 {
@@ -35,5 +47,5 @@ kids = Menu("kids",
 "11am", "9pm"          
 )
 
-Menu.NameOfMenu(kids)
+
 
