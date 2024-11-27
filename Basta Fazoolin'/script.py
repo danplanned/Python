@@ -66,8 +66,6 @@ class Franchise():
                 menuAvailable.append(menu)
     return menuAvailable
 
-
-
 # Class Franchise ends here
 
 flagship_store = Franchise("1232 West End Road", [brunch, early_bird, dinner, kids])
@@ -78,9 +76,22 @@ print(flagship_store)
 for menu in flagship_store.available_menus(1700):
   print(menu)
 
+class Business():
+  def __init__(self, name, franchises):
+    self.name = name
+    self.franchises = franchises
+
+# Class Business ends here
 
 
+FirstBusiness = Business("Basta Fazoolin' with my Heart", [flagship_store, new_installment])
 
+arepas_menu = Menu("Take a'Arepa", {
+  'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50
+}, "1000", "2000"
+)
 
+arepas_place = Franchise("189 Fitzgerald Avenue", arepas_menu)
+newBusiness = Business("Take a' Arepa", arepas_place)
 
 
